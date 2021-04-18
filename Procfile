@@ -1,0 +1,1 @@
+web: gunicorn rapidpro.wsgi
