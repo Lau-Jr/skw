@@ -1,1 +1,1 @@
-web: gunicorn rapidpro.wsgi
+web: gunicorn mpis.wsgi

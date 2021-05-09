@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %} 
+    {% if request.user.is_authenticated %} 
+        {% if request.user.is_admin %} 
+            welcome admin 
+        {%else %}
+        <h1>karibu rapid pro</h1>
+        {% endif %}
+    {% endif %}
+{% endblock content %}
