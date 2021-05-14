@@ -1,3 +1,4 @@
+from django.http.response import HttpResponseRedirect
 from mpis_backend.models import Jimbo, Sekta, Maoni
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,6 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 import json
 import requests
+from django.core.files.storage import FileSystemStorage
 
 
 class SektaListView(LoginRequiredMixin, ListView):
@@ -90,3 +92,18 @@ def send_message(request, pk):
             oni.status = True
             oni.save()
             return redirect('/mpis/maoni')
+
+
+def upload_data_from_file(request):
+
+    if request.method == 'POST' and request.FILES['choose']:
+        myfile = request.FILES['choose']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        # uploaded_file_url = fs.url(filename)
+
+        print(forms.UploadDataForm.handle_uploaded_majimbo(myfile))
+        return HttpResponseRedirect('/')
+
+    form = forms.UploadDataForm()
+    return render(request, 'mpis_backend/add_data_from_csv.html', {'form': form})
