@@ -32,5 +32,6 @@
         ".vscode{,/**}"
     ],
     "appService.defaultWebAppToDeploy": "/subscriptions/4c001935-0176-47a4-9b68-c4abdb24f364/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/mpis-dashboard",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "python.pythonPath": "C:\\Users\\y4c\\.conda\\envs\\rp\\python.exe"
 }

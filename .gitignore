@@ -22,4 +22,4 @@ mpis_backend/migrations/__pycache__/0001_initial.cpython-36.pyc
 mpis_backend/__pycache__/views.cpython-36.pyc
 mpis/__pycache__/settings.cpython-36.pyc
 .env
-/static
+/staticfiles
