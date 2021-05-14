@@ -40,10 +40,10 @@ class User(AbstractUser):
 
 
 class Jimbo(models.Model):
-    jina_la_jimbo = models.CharField(max_length=20)
-    mkoa = models.CharField(max_length=15)
-    halmashauri = models.CharField(max_length=20)
-    kata = models.CharField(max_length=20)
+    jina_la_jimbo = models.CharField(max_length=255)
+    mkoa = models.CharField(max_length=255)
+    halmashauri = models.CharField(max_length=255)
+    kata = models.CharField(max_length=255)
 
     class Meta:
         verbose_name_plural = 'Majimbo'
