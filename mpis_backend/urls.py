@@ -1,5 +1,5 @@
 from django.urls import path, include
-from mpis_backend.views import SektaListView,  maoni, reply, send_message, upload_data_from_file
+from mpis_backend.views import SektaListView,  maoni, reply, send_message, upload_data_from_file,upload_data_sekta
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -9,6 +9,7 @@ urlpatterns = [
     path('sekta/', SektaListView.as_view(), name='sekta-list'),
     path('maoni/', maoni, name='maoni'),
     path('add-data/', upload_data_from_file, name='add-data'),
+    path('add-sekta/', upload_data_sekta, name='add-sekta'),
     path('reply/<pk>/', reply, name='reply'),
     path('send-message/<pk>/', send_message, name='send-msg'),
 ]
