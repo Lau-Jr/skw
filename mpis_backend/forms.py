@@ -1,6 +1,10 @@
 from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django import forms
 from django.contrib.auth import get_user_model
+import csv
+# from pathlib import Path
+from mpis.settings import MEDIA_ROOT
+from mpis_backend.models import *
 
 User = get_user_model()
 
@@ -41,3 +45,16 @@ class UserCreationForm(forms.ModelForm):
 
 class ReplyForm(forms.Form):
     reply = forms.CharField(widget=forms.Textarea)
+
+
+class UploadDataForm(forms.Form):
+    choose = forms.FileField()
+
+    def handle_uploaded_majimbo(file):
+        with open(MEDIA_ROOT+'/'+file.name) as jimbo:
+            jimbo_csv = list(csv.DictReader(jimbo))
+        for oni in jimbo_csv:
+            del oni['id']
+            m = Jimbo(**oni)
+            m.save()
+        return 'done '
