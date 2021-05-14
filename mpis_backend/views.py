@@ -107,3 +107,18 @@ def upload_data_from_file(request):
 
     form = forms.UploadDataForm()
     return render(request, 'mpis_backend/add_data_from_csv.html', {'form': form})
+
+
+def upload_data_sekta(request):
+
+    if request.method == 'POST' and request.FILES['choose']:
+        myfile = request.FILES['choose']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        # uploaded_file_url = fs.url(filename)
+
+        print(forms.UploadDataForm.handle_uploaded_sekta(myfile))
+        return HttpResponseRedirect('/')
+
+    form = forms.UploadDataForm()
+    return render(request, 'mpis_backend/add_data_sekta.html', {'form': form})
