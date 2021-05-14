@@ -58,3 +58,11 @@ class UploadDataForm(forms.Form):
             m = Jimbo(**oni)
             m.save()
         return 'done '
+
+    def handle_uploaded_sekta(file):
+        with open(MEDIA_ROOT+'/'+file.name) as sekta:
+            sekta_csv = list(csv.DictReader(sekta))
+        for oni in sekta_csv:
+            m = Sekta(**oni)
+            m.save()
+        return 'done '
