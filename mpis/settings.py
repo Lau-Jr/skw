@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 import dj_database_url
 import dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -160,6 +159,5 @@ REST_FRAMEWORK = {
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/'
-django_heroku.settings(locals())
 # options = DATABASES['default'].get('OPTIONS', {})
 # options.pop('sslmode', None)
