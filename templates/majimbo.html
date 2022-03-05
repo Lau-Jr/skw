@@ -24,8 +24,13 @@
         <td><a href="{% url 'mpis_backend:reply' maoni.id %} ">{{maoni.maoni}}</a></td>
         <td>{{maoni.jimbo}}</a></td>
         <td>{{maoni.sekta}}</a></td>
-        <td>{{maoni.category}}</a></td>
-        {% comment %} <td>{{maoni.maoni}}</a></td> {% endcomment %}
+        {% if maoni.category == 1 %}
+            <td>maoni</a></td>
+        {% elif maoni.category == 2 %}
+            <td>mapendekezo</a></td>
+        {% else %}
+            <td>pongezi</a></td>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
